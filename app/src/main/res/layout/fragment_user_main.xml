@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.UserMainFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        tools:context=".ui.UserMainFragment">
+
+        <!-- ==================== HEADER SECTION ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="0dp"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/header_green">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="20dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp">
+
+                <!-- Welcome Row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🌳 Welcome Back!"
+                            android:textSize="14sp"
+                            android:textColor="#E8F5E9" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tree Explorer"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <!-- Search Bar with improved design -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardElevation="3dp"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="4dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🔍"
+                            android:textSize="22sp"
+                            android:paddingStart="12dp"
+                            android:paddingEnd="4dp" />
+
+                        <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:id="@+id/searchId"
+                            android:hint="Search by tree or scientific name..."
+                            android:inputType="text"
+                            android:background="@null"
+                            android:padding="12dp"
+                            android:textSize="15sp" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- ==================== OXYGEN REPORT HEADING ==================== -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🫁 Oxygen Report"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#2E7D32"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center_vertical"/>
+                <TextView
+                    android:id="@+id/tvTotalTreesCount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Trees: 0"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#1B5E20"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"/>
+
+                <!-- ==================== OXYGEN TABLE WITH BORDERS ==================== -->
+                <TableLayout
+                    android:id="@+id/tableOxygen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:stretchColumns="1"
+                    android:background="@android:color/white"
+                    android:padding="8dp"
+                    android:shrinkColumns="*">
+
+                    <!-- Table Header Row -->
+                    <TableRow
+                        android:background="#A5D6A7"> <!-- light green for header -->
+                        <TextView
+                            android:text="Period"
+                            android:textStyle="bold"
+                            android:padding="8dp"
+                            android:background="#81C784"
+                            android:textColor="@android:color/white"/>
+                        <TextView
+                            android:text="Oxygen (kg)"
+                            android:textStyle="bold"
+                            android:padding="8dp"
+                            android:background="#81C784"
+                            android:textColor="@android:color/white"/>
+                    </TableRow>
+
+                    <!-- Data Rows with border effect -->
+                    <TableRow android:background="#E8F5E9">
+                        <TextView
+                            android:text="Today"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                        <TextView
+                            android:id="@+id/tvDailyOxygen"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                    </TableRow>
+
+                    <TableRow android:background="#E8F5E9">
+                        <TextView
+                            android:text="This Week"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                        <TextView
+                            android:id="@+id/tvWeeklyOxygen"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                    </TableRow>
+
+                    <TableRow android:background="#E8F5E9">
+                        <TextView
+                            android:text="This Month"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                        <TextView
+                            android:id="@+id/tvMonthlyOxygen"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                    </TableRow>
+
+                    <TableRow android:background="#E8F5E9">
+                        <TextView
+                            android:text="Yearly Estimate"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                        <TextView
+                            android:id="@+id/tvYearlyOxygen"
+                            android:padding="8dp"
+                            android:background="#C8E6C9"/>
+                    </TableRow>
+
+                </TableLayout>
+
+                <!-- Random Tree Data Section Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌲  Tree Discoveries"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="#2E7D32" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <!-- Improved Tree Cards -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/white">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/treeRecyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        tools:listitem="@layout/tree_card"/>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- ==================== FOOTER SECTION ==================== -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="@color/footer_grey">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <!-- Navigation Icons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🏠"
+                            android:textSize="22sp"
+                            android:textColor="#2E7D32" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Home"
+                            android:textSize="11sp"
+                            android:textColor="#2E7D32"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/qrCodeLayout"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/code"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scan"
+                            android:textSize="11sp"
+                            android:textColor="#757575"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/profileLayout"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="👤"
+                            android:textSize="22sp"
+                            android:textColor="#757575" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Profile"
+                            android:textSize="11sp"
+                            android:textColor="#757575"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Footer Text -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="© 2026 TreeScanner App · v2.0"
+                    android:textSize="10sp"
+                    android:textColor="#999999"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.TreeDetailsFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F7FA"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                app:cardCornerRadius="0dp"
+                app:cardElevation="0dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/ivTreeDetailImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/tree" />
+
+                    <ImageView
+                        android:id="@+id/ivSritLogo"
+                        android:layout_width="120dp"
+                        android:layout_height="60dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="-19dp"
+                        android:elevation="10dp"
+                        android:src="@drawable/srit_logo" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/btnBack"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="48dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="8dp"
+                        android:clickable="true"
+                        android:focusable="true">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/left"
+                            app:tint="#2E7D32" />
+                    </androidx.cardview.widget.CardView>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="24dp">
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:columnCount="2"
+                    android:alignmentMode="alignMargins">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <TextView
+                                android:text="Tree Name:"
+                                android:textSize="12sp"
+                                android:textColor="#1B5E20"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/tvGridTreeName"
+                                android:text="Majestic Oak"
+                                android:textColor="#333333"
+                                android:textSize="15sp"
+                                android:textStyle="italic"
+                                android:layout_marginTop="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+                            <TextView
+                                android:text="Scientific Name:"
+                                android:textSize="12sp"
+                                android:textColor="#1B5E20"
+                                android:textStyle="bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:id="@+id/tvGridScientificName"
+                                android:text="Quercus robur"
+                                android:textSize="15sp"
+                                android:textColor="#333333"
+                                android:textStyle="italic"
+                                android:layout_marginTop="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </GridLayout>
+
+            </LinearLayout>
+
+            <!-- Main Content -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingBottom="24dp">
+
+                <!-- Status & ID Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <!-- Status Chip -->
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chipTreeStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:text="Healthy"
+                            android:textColor="@android:color/white"
+                            app:chipBackgroundColor="#4CAF50"
+                            app:chipIconSize="18dp"
+                            app:chipIconTint="@android:color/white"
+                            tools:text="Healthy" />
+
+                        <!-- Tree ID -->
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Tree ID"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvTreeId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TR-2024-00125"
+                                android:textColor="#333333"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                tools:text="TR-2024-00125" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Two Column Grid for Basic Info -->
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="2"
+                    android:columnOrderPreserved="false">
+
+                    <!-- Oxygen Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginBottom="8dp"
+                                android:src="@drawable/age"
+                                app:tint="#9C27B0" />
+
+                            <TextView
+                                android:id="@+id/tvTreeOxygen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="A mature Majestic Oak produces approximately 21.5 kg of oxygen per year (estimated)."
+                                android:textColor="#333333"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                tools:text="A mature Majestic Oak produces approximately 21.5 kg of oxygen per year (estimated)." />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Oxygen Level"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Height Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginBottom="8dp"
+                                android:src="@drawable/sprout"
+                                app:tint="#FF9800" />
+
+                            <TextView
+                                android:id="@+id/tvTreeHeight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="This tree usually grows up to about 28–30 meters tall."
+                                android:textColor="#333333"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                tools:text="This tree usually grows up to about 28–30 meters tall." />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Height"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Diameter Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginBottom="8dp"
+                                android:src="@drawable/tree"
+                                app:tint="#3F51B5" />
+
+                            <TextView
+                                android:id="@+id/tvTreeDiameter"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="The trunk is thick, around 2.3 meters wide."
+                                android:textColor="#333333"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                tools:text="The trunk is thick, around 2.3 meters wide." />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Diameter"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Canopy Card -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_columnWeight="1"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="2dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_marginBottom="8dp"
+                                android:src="@drawable/c"
+                                app:tint="#009688" />
+
+                            <TextView
+                                android:id="@+id/tvTreeCanopy"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="It spreads widely, about 18 meters around."
+                                android:textColor="#333333"
+                                android:textSize="14sp"
+                                android:textStyle="normal"
+                                tools:text="It spreads widely, about 18 meters around." />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Canopy Spread"
+                                android:textColor="#757575"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </GridLayout>
+
+                <!-- Description Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="#1B5E20"
+                            android:text="Description"
+                            android:textColor="#1B5E20"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvTreeDescription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="4dp"
+                            android:text="The English oak is a large deciduous tree with lobed leaves and acorns. It's known for its strength and longevity, often living for several centuries. This particular specimen is noted for its exceptional size and health, serving as a key component of the local ecosystem."
+                            android:textColor="#424242"
+                            android:textSize="15sp"
+                            tools:text="The English oak is a large deciduous tree with lobed leaves and acorns. It's known for its strength and longevity, often living for several centuries." />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Location Card with Map -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="24dp"
+                            android:paddingBottom="16dp">
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="12dp"
+                                android:src="@drawable/location" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Location Details"
+                                android:textColor="#1B5E20"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1" />
+
+                            <TextView
+                                android:id="@+id/tvCoordinates"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="40.7128° N, 74.0060° W"
+                                android:textColor="#757575"
+                                android:textSize="12sp"
+                                tools:text="40.7128° N, 74.0060° W" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="24dp"
+                            android:paddingTop="16dp">
+
+                            <TextView
+                                android:id="@+id/tvTreeAddress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="12dp"
+                                android:text="Central Park, New York City, NY 10022, USA"
+                                android:textColor="#424242"
+                                android:textSize="15sp"
+                                tools:text="Central Park, New York City, NY 10022, USA" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Additional Details Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="#1B5E20"
+                            android:text="Additional Information"
+                            android:textColor="#1B5E20"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <!-- Details Grid -->
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:alignmentMode="alignMargins"
+                            android:columnCount="2"
+                            android:columnOrderPreserved="false"
+                            android:rowCount="3">
+
+                            <!-- Species Type -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="Species Type"
+                                    android:textColor="#757575"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tvSpeciesType"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Deciduous"
+                                    android:textColor="#333333"
+                                    android:textSize="14sp"
+                                    tools:text="Deciduous" />
+                            </LinearLayout>
+
+                            <!-- Sun Exposure -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="Sun Exposure"
+                                    android:textColor="#757575"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tvSunExposure"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Full Sun"
+                                    android:textColor="#333333"
+                                    android:textSize="14sp"
+                                    tools:text="Full Sun" />
+                            </LinearLayout>
+
+                            <!-- Water Needs -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_marginBottom="16dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="Water Needs"
+                                    android:textColor="#757575"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tvWaterNeeds"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Medium"
+                                    android:textColor="#333333"
+                                    android:textSize="14sp"
+                                    tools:text="Medium" />
+                            </LinearLayout>
+
+                            <!-- Date Planted -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_marginEnd="8dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="Date Planted"
+                                    android:textColor="#757575"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tvDatePlanted"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Spring 1939"
+                                    android:textColor="#333333"
+                                    android:textSize="14sp"
+                                    tools:text="Spring 1939" />
+                            </LinearLayout>
+
+                            <!-- Conservation Status -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:text="Conservation Status"
+                                    android:textColor="#757575"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/tvConservationStatus"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Protected"
+                                    android:textColor="#4CAF50"
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    tools:text="Protected" />
+                            </LinearLayout>
+                        </GridLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Medicine Card uses -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="#1B5E20"
+                            android:text="Medicinal Uses"
+                            android:textColor="#1B5E20"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvMedicinalUses"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:lineSpacingExtra="4dp"
+                            android:text="Traditional medicine uses the bark for its astringent properties, often treating inflammation and skin conditions. The leaves and acorns are also known in various cultures for their therapeutic benefits in digestive health."
+                            android:textColor="#424242"
+                            android:textSize="15sp"
+                            android:inputType="textMultiLine"
+                            android:scrollHorizontally="false"
+                            tools:text="Traditional medicine uses the bark for its astringent properties, often treating inflammation and skin conditions. The leaves and acorns are also known in various cultures for their therapeutic benefits in digestive health. Bark used for inflammation; leaves have antibacterial properties for traditional healing." />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+                <!-- Notes & Observations Card -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="@android:color/white"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="24dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:drawablePadding="8dp"
+                            android:drawableTint="#1B5E20"
+                            android:text="Feedback"
+                            android:textColor="#1B5E20"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/userName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Enter your name"
+                            android:lineSpacingExtra="6dp"
+                            android:textColor="#424242"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/feedbackNotes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Give your feedback here"
+                            android:lineSpacingExtra="6dp"
+                            android:textColor="#424242"
+                            android:inputType="textMultiLine"
+                            android:minLines="3"
+                            android:gravity="top|start"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btFeedback"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:background="#1B5E20"
+                            android:text="Feedback"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Action Buttons -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnShareTree"
+                        android:layout_width="0dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/transparent"
+                        android:drawableStart="@android:drawable/ic_menu_share"
+                        android:drawablePadding="8dp"
+                        android:text="Share"
+                        android:textColor="#2196F3"
+                        app:cornerRadius="24dp"
+                        app:strokeColor="#2196F3"
+                        app:strokeWidth="1dp" />
+                </LinearLayout>
+
+                <!-- Footer -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#1B5E20"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="4dp"
+                        android:text="Tree Record Details"
+                        android:textColor="#A5D6A7"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tvRecordId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Record: TRD-2024-00125-ADMIN"
+                        android:textColor="#81C784"
+                        android:textSize="11sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="12dp"
+                        android:background="#2E7D32" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="12dp"
+                            android:text="© 2026 Forestry Management System"
+                            android:textColor="#81C784"
+                            android:textSize="10sp" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

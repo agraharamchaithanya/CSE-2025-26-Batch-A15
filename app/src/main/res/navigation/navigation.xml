@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_treeListFragment"
+            app:destination="@id/treeListFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_userMainFragment"
+            app:destination="@id/userMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_signInFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTreesFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.AddTreesFragment"
+        android:label="fragment_add_trees"
+        tools:layout="@layout/fragment_add_trees" >
+        <action
+            android:id="@+id/action_addTreesFragment_to_treeListFragment"
+            app:destination="@id/treeListFragment" />
+        <action
+            android:id="@+id/action_addTreesFragment_to_treeDetailsFragment"
+            app:destination="@id/treeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/treeDetailsFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.TreeDetailsFragment"
+        android:label="fragment_tree_details"
+        tools:layout="@layout/fragment_tree_details" >
+        <action
+            android:id="@+id/action_treeDetailsFragment_to_treeListFragment"
+            app:destination="@id/treeListFragment" />
+        <action
+            android:id="@+id/action_treeDetailsFragment_to_getFeedbackFragment"
+            app:destination="@id/getFeedbackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/treeListFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.TreeListFragment"
+        android:label="fragment_tree_list"
+        tools:layout="@layout/fragment_tree_list" >
+        <action
+            android:id="@+id/action_treeListFragment_to_addTreesFragment"
+            app:destination="@id/addTreesFragment" />
+        <action
+            android:id="@+id/action_treeListFragment_to_treeDetailsFragment"
+            app:destination="@id/treeDetailsFragment" />
+        <action
+            android:id="@+id/action_treeListFragment_to_viewQrCodeFragment"
+            app:destination="@id/viewQrCodeFragment" />
+        <action
+            android:id="@+id/action_treeListFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_treeListFragment_to_getFeedbackFragment"
+            app:destination="@id/getFeedbackFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDashboardFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.UserDashboardFragment"
+        android:label="fragment_user_dashboard"
+        tools:layout="@layout/fragment_user_dashboard" >
+        <action
+            android:id="@+id/action_userDashboardFragment_to_treeDetailsFragment"
+            app:destination="@id/treeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/viewQrCodeFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.ViewQrCodeFragment"
+        android:label="fragment_view_qr_code"
+        tools:layout="@layout/fragment_view_qr_code" >
+        <action
+            android:id="@+id/action_viewQrCodeFragment_to_treeListFragment"
+            app:destination="@id/treeListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userMainFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.UserMainFragment"
+        android:label="fragment_user_main"
+        tools:layout="@layout/fragment_user_main" >
+        <action
+            android:id="@+id/action_userMainFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_userMainFragment_to_userDashboardFragment"
+            app:destination="@id/userDashboardFragment" />
+        <action
+            android:id="@+id/action_userMainFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_userMainFragment_to_treeDetailsFragment"
+            app:destination="@id/treeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/getFeedbackFragment"
+        android:name="com.example.greenqrsmarttreeinformationsystem.ui.GetFeedbackFragment"
+        android:label="fragment_get_feedback"
+        tools:layout="@layout/fragment_get_feedback" >
+        <action
+            android:id="@+id/action_getFeedbackFragment_to_treeDetailsFragment"
+            app:destination="@id/treeDetailsFragment" />
+        <action
+            android:id="@+id/action_getFeedbackFragment_to_treeListFragment"
+            app:destination="@id/treeListFragment" />
+    </fragment>
+</navigation>
